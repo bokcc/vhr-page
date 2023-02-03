@@ -17,7 +17,6 @@
 
 <script>
 
-import {postKeyValueRequest} from "@/utils/api";
 
 export default {
     name: "Login",
@@ -28,8 +27,8 @@ export default {
                 password: [{required: true, message: '请输入密码', trigger: 'blur'}]
             },
             loginForm: {
-                username: "",
-                password: ""
+              username: "",
+              password: ""
             },
             rememberMe: false
         }
@@ -38,9 +37,9 @@ export default {
         submitLogin() {
             this.$refs.loginForm.validate((valid) => {
                 if (valid) {
-                    postKeyValueRequest('/doLogin', this.loginForm).then(resp => {
+                    this.postKeyValueRequest('/doLogin', this.loginForm).then(resp => {
                         if (resp) {
-                            window.sessionStorage.setItem('user', Json.stringify(resp.obj))
+                            window.sessionStorage.setItem('user', JSON.stringify(resp.obj))
                             this.$router.replace('/home')
                         }
                     })
