@@ -10,13 +10,16 @@ const routes = [
     {
         path: '/',
         name: 'login',
-        component: Login
+        component: Login,
+        hidden: true
     },
     {
         path: '/home',
         name: 'home',
-        component: Home
+        component: Home,
+        hidden: true
     }
+
 ]
 
 const router = new VueRouter({
